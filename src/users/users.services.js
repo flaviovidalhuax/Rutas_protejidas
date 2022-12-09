@@ -36,9 +36,10 @@ const postUser = (req, res) => {
         })
         .catch((err) => {
             res.status(400).json({
+                stack:err,
                 message: err.message, 
                 fields: {
-                    first_name: 'string',
+                    first_name: 'string_flavio',
                     last_name: 'string',
                     user_name: 'string',
                     email: 'string',
