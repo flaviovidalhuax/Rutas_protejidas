@@ -1,5 +1,6 @@
 const checkUserCredentials = require('./auth.controller')
 const jwt = require('jsonwebtoken')
+const jwtSecret = require('../../config').api.jwtSecret
 
 const postLogin = (req, res) => {
     const {email, password} = req.body
@@ -10,7 +11,7 @@ const postLogin = (req, res) => {
                     const token= jwt.sign({
                         id:data.id,
                         email: data.email,                        
-                    }, 'asd')
+                    }, jwtSecret)                   //fail me
                 res.status(200).json({token})
                 }else{
                     res.status(401).json({message:'Invalid credentials'})
